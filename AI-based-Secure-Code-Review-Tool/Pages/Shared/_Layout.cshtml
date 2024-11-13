@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]-Truckoom Maintenance</title>
+    <link rel="icon" type="image/x-icon" href="/Images/icon.png">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Truckoom_Maintenance.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="/">
+                    <img src="/Images/logo.png" alt="Logo" height="50">
+                </a>
+
+                <!-- Navbar toggler for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar items -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProduct" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Product
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownProduct">
+                                <li><a class="dropdown-item" href="#">Truckoom</a></li>
+                                <li><a class="dropdown-item" href="#">Tracks</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+
+                        @if(User.Identity.IsAuthenticated)
+                        {
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProduct" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hello, @User.Identity.Name!
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownProduct">
+                                    <li>
+                                        <a class="nav-link" asp-action="Index" asp-controller="Maintenance">My Maintenanace Activities</a>
+                                    </li>
+                                    <li>
+                                        <form asp-area="Identity" asp-page="/Account/Logout" method="post" class="form-inline">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="dropdown-item"><b>Logout</b></button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li> 
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary nav-link">Account</a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <img src="/Images/footer-logo.png" alt="Logo" class="img-fluid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h5>Navigation</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Truckoom</a></li>
+                        <li><a href="#">Tracks</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Get Started</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Contact</h5>
+                    <p>
+                        <i class="bi bi-telephone-fill"></i> +971 4 2736234<br>
+                        <i class="bi bi-envelope-fill"></i> <a href="mailto:support@truckoom.com">support@truckoom.com</a>
+                    </p>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <p>
+                        <i class="bi bi-geo-alt-fill"></i> 310, DBC 2,<br>
+                        Al Barsha South Third (Arjan),<br>
+                        Dubai, UAE.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p>&copy; Truckoom Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

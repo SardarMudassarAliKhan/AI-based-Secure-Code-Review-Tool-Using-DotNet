@@ -1,22 +1,288 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-top: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.hero-section {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 100px 0;
+}
+
+@media (max-width: 1400px) {
+    .col-md-6 {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+}
+
+@media (max-width: 767px) {
+    .col-md-6 {
+        padding-right: 4px;
+        padding-left: 4px;
+    }
+}
+
+@media (max-width: 575px) {
+    .col-md-6 {
+        width: 100%;
+    }
+}
+
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container-fluid row {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 20px;
+}
+
+h1, p {
+    text-align: center;
+}
+
+h1 {
+    line-height: 1.5;
+    font-size: 69px;
+    text-align: left;
+}
+
+    h1 span {
+        display: block;
+        margin-top: -10px; /* Adjust the negative margin to position "Easy" on the left side */
+    }
+
+/* Custom Hero styles */
+.col-md-6 .btn-primary {
+    width: 250px; /* Set the width of the button */
+    background-color: #ffb627;
+    border-color: #ffb627;
+}
+
+    .col-md-6 .btn-primary:hover {
+        width: 250px;
+        background-color: #ffb627;
+        border-color: #ffb627;
+    }
+
+.col-md-6 h5 {
+    color: #ffb627;
+    text-align: left;
+}
+
+.col-md-6 p {
+    text-align: left;
+}
+/* Custom footer styles */
+footer {
+    font-size: 14px;
+    background-color: #353535
+}
+
+    footer h5 {
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    footer ul li {
+        margin-bottom: 8px;
+    }
+
+    footer p {
+        margin-bottom: 15px;
+    }
+
+    footer a {
+        color: #fff;
+    }
+
+        footer a:hover {
+            color: #f8f9fa; /* Lighter shade for hover */
+        }
+
+/* Center align text in footer */
+.text-center {
+    text-align: center;
+}
+
+.text-light py-4 {
+    background-color: #353535 !important
+}
+
+/* Remove underlines from links */
+footer a {
+    text-decoration: none;
+}
+
+/* Change link color */
+footer a {
+    color: #fff; /* Change the color as needed */
+}
+
+    /* Style links on hover */
+    footer a:hover {
+        color: #f8f9fa; /* Lighter shade for hover */
+        text-decoration: underline; /* Optional: Add underline on hover */
+    }
+/* Navbar item text color */
+.navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.5);
+    margin-right: 10px; /* Adjust the margin as needed */
+    font-weight: bold;
+}
+
+    .navbar-nav .nav-link.active {
+        color: #ffb627; /* Active color */
+    }
+
+    .navbar-nav .nav-link a:hover {
+        color: #ffb627 !important; /* Hover color */
+    }
+
+    .navbar-nav .nav-link a {
+        color: rgba(0, 0, 0, 0.5) !important;
+    }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+    .navbar-dark .navbar-nav .nav-link:hover {
+        color: #ffb627;
+    }
+/* Navbar item hover color */
+.navbar-nav .nav-link:hover {
+    color: #ffb627; /* Hover color */
+}
+
+/* Button color and text color */
+.navbar-nav .btn-primary {
+    background-color: #ffb627; /* Button background color */
+    border-color: #ffb627; /* Button border color */
+    color: rgba(0, 0, 0, 0.5); /* Button text color */
+}
+
+    /* Button hover color */
+    .navbar-nav .btn-primary:hover {
+        background-color: #ffb627; /* Hover background color (same as button color) */
+        border-color: #ffb627; /* Hover border color (same as button color) */
+        color: rgba(0, 0, 0, 0.5) !important; /* Hover text color (same as button text color) */
+    }
+
+    .navbar-nav .btn-primary.nav-link {
+        color: #fff;
+    }
+
+    .navbar-nav .btn-primary:hover {
+        color: #fff !important;
+        width: 120px;
+    }
+
+/* Dropdown Menu Container Styles */
+.dropdown-menu-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 500px;
+    max-width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-item:hover .dropdown-menu-container {
+    display: block;
+}
+
+.col-md-6 card {
+    margin-top: 25px;
+}
+
+.table-container {
+    margin-top: 20px;
+}
+
+    .table-container h2 {
+        margin-bottom: 20px;
+    }
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.btn-actions {
+    margin-right: 5px;
+}
+
+.col-md-12 .btn-primary {
+    border-color: #ffb627 !important;
+    background-color: #ffb627 !important;
+}
+
+.card-footer {
+    background-color: #f9f9f9;
+}
+
+    .card-footer .btn-primary {
+        display: grid;
+    }
+
+.row .col-md-12 .btn-primary {
+    border-color: #ffb627 !important;
+    background-color: #ffb627 !important;
+    float: right;
+}
+
+.card-footer .btn-primary {
+    display: block;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Add space below each form group */
+}
+
+/* Optional: Customize input and textarea styles */
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+textarea {
+    height: 150px; /* Adjust height for textarea */
 }
