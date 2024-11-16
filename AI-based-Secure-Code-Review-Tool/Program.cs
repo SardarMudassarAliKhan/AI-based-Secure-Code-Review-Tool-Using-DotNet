@@ -1,11 +1,9 @@
 using AI_based_Secure_Code_Review_Tool.Data;
-using Azure;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Azure;
-using Microsoft.Extensions.DependencyInjection;
 using OpenAI;
 using System.ClientModel;
 
@@ -24,8 +22,17 @@ namespace AI_based_Secure_Code_Review_Tool
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = true;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequiredLength = 12;
+                options.Password.RequiredUniqueChars = 6;
+            })
+           .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // Add services for Key Vault
             builder.Services.AddAzureClients(clientBuilder =>
