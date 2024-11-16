@@ -13,11 +13,13 @@ namespace AI_based_Secure_Code_Review_Tool.Controllers
             _logger = logger;
         }
 
+        [ValidateAntiForgeryToken]
         public IActionResult Index()
         {
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         public IActionResult Privacy()
         {
             return View();
